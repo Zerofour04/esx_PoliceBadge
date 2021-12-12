@@ -16,10 +16,10 @@ p {
 #id-card {
   position: relative;
   display: none;
-  margin: 230px 50px 0 0;
+  margin: 290px 50px 0 0;
   float: right;
-  width: 457px;
-  height: 272px;
+  width: 512px;
+  height: 683px;
   padding: 54px 17px 10px 144px;
   background: url("../images/idcard.png");
 }
@@ -53,7 +53,7 @@ img {
 }
 #signature {
   position: absolute;
-  bottom: 76px;
+  bottom: 487px;
   left: 152px;
   color: #b1b177;
   font-size: 19px;

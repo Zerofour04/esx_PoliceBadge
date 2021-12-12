@@ -9,7 +9,7 @@ $(document).ready(function(){
 
       if ( type == 'driver' || type == null) {
         $('img').show();
-        $('#name').css('color', '#282828');
+        $('#name').css('color', '#000000');
 
         if ( sex.toLowerCase() == 'm' ) {
           $('img').attr('src', 'assets/images/male.png');

@@ -1,8 +1,9 @@
 local open = false
+ESX = nil
 
 -- Open ID card
-RegisterNetEvent('jsfour-idcard:open')
-AddEventHandler('jsfour-idcard:open', function( data, type )
+RegisterNetEvent('policebadge:open')
+AddEventHandler('policebadge:open', function( data, type )
 	open = true
 	SendNUIMessage({
 		action = "open",
@@ -11,7 +12,7 @@ AddEventHandler('jsfour-idcard:open', function( data, type )
 	})
 end)
 
--- Key events
+
 Citizen.CreateThread(function()
 	while true do
 		Wait(0)
@@ -23,3 +24,6 @@ Citizen.CreateThread(function()
 		end
 	end
 end)
+
+
+

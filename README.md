@@ -1,105 +1,49 @@
-# jsfour-idcard
-This is an updated version of my <a href="https://github.com/jonassvensson4/jsfour-legitimation">jsfour-legitimation<a/>. It has and ID card, firearms license and a driver license
+# esx_policeBadge
+PoliceBadge script made by xEnzoC94x. 
+Enter in my Discord Channel: https://discord.gg/9YWr96c
+or contact me in discord for any help: xEnzoC94x#0300
 
-## LICENSE
-Please don't sell or reupload this resource
+## Dependencies
+ - esx_policejob 
 
 ## INSTALLATION
-Drag and drop. 
-You also need to have <a href="https://github.com/ESX-Org/es_extended">es_extended</a> and <a href="https://github.com/ESX-Org/esx_license">esx_license</a> installed.
-
-You need to add a couple rows of code depending on how you want to use the ID. Please check the **Usage** down below.
-
-
-## SCREENSHOTS
-![screenshot](https://i.gyazo.com/645a490f474296a9c5ce2a05a16a33c9.png)
-![screenshot](https://i.gyazo.com/f4c14b2efe6f0ff8c88098a4a524e8be.png)
-![screenshot](https://i.gyazo.com/0aaeaa5b78cd2bef98ee9185bc5295c8.png)
-
-## USAGE
-
-Example on how to add a button-event since people don't want to learn:
-https://pastebin.com/UPQRcAei
-
-```lua
--- ### Event usages:
-
--- Look at your own ID-card
-TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
-
--- Show your ID-card to the closest person
-local player, distance = ESX.Game.GetClosestPlayer()
-
-if distance ~= -1 and distance <= 3.0 then
-  TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
-else
-  ESX.ShowNotification('No players nearby')
-end
-
-
--- Look at your own driver license
-TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')
-
--- Show your driver license to the closest person
-local player, distance = ESX.Game.GetClosestPlayer()
-
-if distance ~= -1 and distance <= 3.0 then
-  TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), 'driver')
-else
-  ESX.ShowNotification('No players nearby')
-end
-
-
--- Look at your own firearms license
-TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'weapon')
-
--- Show your firearms license to the closest person
-local player, distance = ESX.Game.GetClosestPlayer()
-
-if distance ~= -1 and distance <= 3.0 then
-  TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), 'weapon')
-else
-  ESX.ShowNotification('No players nearby')
-end
-
--- ### A menu (THIS IS AN EXAMPLE)
-function openMenu()
+ - Download the repository
+ - Extract it
+ - Open client/main.lua in esx_policejob and Paste this code
+ 
+ ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+ function openMenu()
   ESX.UI.Menu.Open(
 	'default', GetCurrentResourceName(), 'id_card_menu',
 	{
-		title    = 'ID menu',
+	    css = 'documenti',
+		title    = 'Police Badge',
 		elements = {
-			{label = 'Check your ID', value = 'checkID'},
-			{label = 'Show your ID', value = 'showID'},
-			{label = 'Check your driver license', value = 'checkDriver'},
-			{label = 'Show your driver license', value = 'showDriver'},
-			{label = 'Check your firearms license', value = 'checkFirearms'},
-			{label = 'Show your firearms license', value = 'showFirearms'},
+			{label = 'Check your ID', value = 'checkBadge'},
+			{label = 'Show your ID', value = 'showBadge'},
 		}
 	},
+	
 	function(data, menu)
 		local val = data.current.value
+
 		
-		if val == 'checkID' then
-			TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
-		elseif val == 'checkDriver' then
-			TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'driver')
-		elseif val == 'checkFirearms' then
-			TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()), 'weapon')
+		if val == 'checkBadge' then
+			TriggerServerEvent('policebadge:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(PlayerId()))
+                   local lPed = GetPlayerPed(-1)         
 		else
 			local player, distance = ESX.Game.GetClosestPlayer()
 			
 			if distance ~= -1 and distance <= 3.0 then
-				if val == 'showID' then
-				TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
-				elseif val == 'showDriver' then
-			TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), 'driver')
-				elseif val == 'showFirearms' then
-			TriggerServerEvent('jsfour-idcard:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player), 'weapon')
+				if val == 'showBadge' then
+				TriggerServerEvent('policebadge:open', GetPlayerServerId(PlayerId()), GetPlayerServerId(player))
+
 				end
 			else
 			  ESX.ShowNotification('No players nearby')
 			end
+		
 		end
 	end,
 	function(data, menu)
@@ -107,6 +51,36 @@ function openMenu()
 	end
 )
 end
-```
+ 
+ CreateThread(function()
+    while true do 
+        Citizen.Wait(0)
+		if IsControlJustReleased(0, 161) and not isDead and ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' and not ESX.UI.Menu.IsOpen('default', GetCurrentResourceName(), 'id_card_menu') then
+			openMenu()
+		end
+	end
+end)
+		
+CreateThread(function()
+    while true do 
+        Citizen.Wait(5000)
+			if ESX.PlayerData.job and ESX.PlayerData.job.name == 'police' then
+            TriggerServerEvent('policebadge:ItemsBadge', GetPlayerPed(-1))
+		end	
+    end
+end)
 
-PSD file: https://www.dropbox.com/sh/ho6xq5cmk6sxz6x/AAB3aPJOylL7EWrU6BFb45-0a?dl=0
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+ - Paste esx_policeBadge 
+ - Insert SQL files into your database
+ - Add ```start esx_policeBadge``` to your server.cfg
+
+
+
+If you want other script and you found any bugs you can join our discord to help you.
+Whatever if you bought it or it's leaked I will help.
+
+Enter in my Discord Channel: https://discord.gg/RxuxXAw
