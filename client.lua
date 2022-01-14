@@ -12,7 +12,6 @@ AddEventHandler('policebadge:open', function( data, type )
 	})
 end)
 
-
 Citizen.CreateThread(function()
 	while true do
 		Wait(0)

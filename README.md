@@ -1,18 +1,28 @@
-# esx_policeBadge
+# 👮esx_policeBadge
 PoliceBadge script made by xEnzoC94x. 
 Enter in my Discord Channel: https://discord.gg/9YWr96c
 or contact me in discord for any help: xEnzoC94x#0300
+## ⭐Credits
+- [Creator](https://github.com/jonassvensson4)
+- [Editor](https://forum.cfx.re/u/ininjax2002)
 
-## Dependencies
- - esx_policejob 
+## ℹ️Information
+Hey, I reuploaded this resource here. It was removed from the forum because it is not allowed to re-upload on the forum.
+And I used this script, which was pretty good and free
 
-## INSTALLATION
- - Download the repository
- - Extract it
- - Open client/main.lua in esx_policejob and Paste this code
- 
- ----------------------------------------------------------------------------------------------------------------------------------------------------------------
- 
+## 🧱Dependency
+ - [esx_policejob](https://github.com/Zerofour04/esx_policejob-handcuffmoving) 
+
+## 📋Installation
+1. Download the repository
+2. Extract it
+3. Put it in the `/resource` folder
+4. Insert SQL files into your database
+5. Add ```start esx_policeBadge``` to your server.cfg
+6. Open client/main.lua in esx_policejob and paste this code:
+
+⚠️This code is a little bit cracked, so don't try to edit something, I will try to fix this code
+```
  function openMenu()
   ESX.UI.Menu.Open(
 	'default', GetCurrentResourceName(), 'id_card_menu',
@@ -69,18 +79,7 @@ CreateThread(function()
 		end	
     end
 end)
-
-
-
-----------------------------------------------------------------------------------------------------------------------------------------------------------------
-
- - Paste esx_policeBadge 
- - Insert SQL files into your database
- - Add ```start esx_policeBadge``` to your server.cfg
-
-
-
-If you want other script and you found any bugs you can join our discord to help you.
-Whatever if you bought it or it's leaked I will help.
-
-Enter in my Discord Channel: https://discord.gg/RxuxXAw
+```
+## 🆘Support
+Discord Channel from ininjax2002: https://discord.gg/9YWr96c
+or contact me in discord for any help: xEnzoC94x#0300
