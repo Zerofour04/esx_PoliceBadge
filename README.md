@@ -11,7 +11,7 @@ Hey, I reuploaded this resource here. It was removed from the forum because it i
 And I used this script, which was pretty good and free
 
 
-![c78d0fcb28a231adbe33189314ef13ba42b9cec2](https://user-images.githubusercontent.com/60815764/149531284-6eaf11fe-6855-40a1-8ff6-560aa371d4cf.png)
+![Preview](https://user-images.githubusercontent.com/60815764/149531284-6eaf11fe-6855-40a1-8ff6-560aa371d4cf.png)
 
 ## 🧱Dependency
  - [esx_policejob](https://github.com/Zerofour04/esx_policejob-handcuffmoving) 
