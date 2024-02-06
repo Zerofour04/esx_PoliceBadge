@@ -1,20 +1,15 @@
-# 👮esx_policeBadge
-PoliceBadge script made by xEnzoC94x. 
-Enter in my Discord Channel: https://discord.gg/9YWr96c
-or contact me in discord for any help: xEnzoC94x#0300
-## ⭐Credits
-- [Creator](https://github.com/jonassvensson4)
-- [Editor](https://forum.cfx.re/u/ininjax2002)
+<h1 align="center"> 👮esx_policeBadge</h1>
 
 ## ℹ️Information
-Hey, I reuploaded this resource here. It was removed from the forum because it is not allowed to re-upload on the forum.
-And I used this script, which was pretty good and free
+- Hey, I reuploaded this resource here. It was removed from the forum because it is not allowed to fork on the forum.
+- And I used this script, which was pretty good and free
 
-
+## 🖼️Pictures
 ![Preview](https://user-images.githubusercontent.com/60815764/149531284-6eaf11fe-6855-40a1-8ff6-560aa371d4cf.png)
+![policebadge](https://github.com/Zerofour04/esx_PoliceBadge/assets/60815764/1d2160bb-cebe-4d2a-96f2-505ffb757335)
 
-## 🧱Dependency
- - [esx_policejob](https://github.com/Zerofour04/esx_policejob-handcuffmoving) 
+## 🧱Requirements
+ - [esx_policejob](https://github.com/Zerofour04/esx_policejob-improved) 
 
 ## 📋Installation
 1. Download the repository
@@ -23,8 +18,6 @@ And I used this script, which was pretty good and free
 4. Insert SQL files into your database
 5. Add ```start esx_policeBadge``` to your server.cfg
 6. Open client/main.lua in esx_policejob and paste this code:
-
-⚠️This code is a little bit cracked, so don't try to edit something, I will try to fix this code
 ```
  function openMenu()
   ESX.UI.Menu.Open(
@@ -83,6 +76,7 @@ CreateThread(function()
     end
 end)
 ```
-## 🆘Support
-Discord Channel from ininjax2002: https://discord.gg/9YWr96c
-or contact me in discord for any help: xEnzoC94x#0300
+
+## ⭐Credits
+- [Creator](https://github.com/jonassvensson4)
+- [Editor](https://forum.cfx.re/u/xenzoc94x/summary)
